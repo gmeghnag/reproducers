@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: reproducer-03433644
+  namespace: argocd
+spec:
+  destination:
+    name: in-cluster
+    namespace: reproducer-03433644
+  project: reproducer-03433644
+  source:
+    helm:
+      valueFiles:
+        - values.yaml
+    path: reproducer-03433644/charts/
+    repoURL: 'https://github.com/gmeghnag/reproducers'
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+    retry:
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m0s
+      limit: 2

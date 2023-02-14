@@ -3,4 +3,6 @@ kind: Kustomization
 
 resources:
 - reproducer-03433644/argocd/application.yaml
+- reproducer-03433644/argocd/app.vanilla.yaml
 - reproducer-03433644/argocd/project.yaml
+- reproducer-03433644/argocd/project.vanilla.yaml
