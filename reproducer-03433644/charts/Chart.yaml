@@ -1,0 +1,6 @@
+apiVersion: v2
+version: 1.0.0
+appVersion: 1.0.0
+type: application
+description: A Helm chart to reproduce 03433644
+name: "reproducer-03433644"

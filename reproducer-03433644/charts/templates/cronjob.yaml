@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: ubi
+  namespace: {{ .Values.namespace_name }}
+spec:
+  schedule: "*/2 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: ubi
+            image: {{ .Values.image_name }}:{{ .Values.image_tag }}
+            imagePullPolicy: IfNotPresent
+            command:
+            - /bin/sh
+            - -c
+            - date; echo Hello from the Kubernetes cluster; echo $(date +"%H:%M":%S);  sleep 1m
+          restartPolicy: OnFailure

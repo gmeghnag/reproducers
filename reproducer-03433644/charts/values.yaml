@@ -1,0 +1,4 @@
+image_tag: "latest"
+image_name: "registry.access.redhat.com/ubi8/ubi"
+
+namespace_name: "reproducer-03433644"
